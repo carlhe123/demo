@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: demo
+
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - 120.0.0.1
+
+    config:
+      label: master
+      profile: sys, frame, app
+      failFast: true
+
+      # 全局配置文件名的前面部分
+      name: ${spring.application.name}
+
+      discovery:
+        enabled: true
+        service-id: config-center
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://dev_hdcf:hdcf2019@rcdev1:8761/eureka/,http://dev_hdcf:hdcf2019@rcdev2:8762/eureka/,http://dev_hdcf:hdcf2019@rcdev3:8763/eureka/
+
+
