@@ -3,6 +3,8 @@ package com.carl.demo.controller;
 import com.carl.demo.bean.Result;
 import com.carl.demo.service.DemoService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hadoop.fs.FsShell;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,9 @@ public class DemoController {
     @Resource
     private DemoService demoService;
 
+    @Autowired
+    private static FsShell shell;
+
     @RequestMapping(value = "/queryTest",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Result queryTest(@RequestParam(value = "id") Long id){
@@ -30,5 +35,9 @@ public class DemoController {
         String productName = demoService.queryProductNameById(id);
         log.info("返回结果："+productName);
         return Result.ok();
+    }
+
+    public static void main(String[] args) throws Exception{
+        System.out.println(shell.getCurrentTrashDir());
     }
 }
