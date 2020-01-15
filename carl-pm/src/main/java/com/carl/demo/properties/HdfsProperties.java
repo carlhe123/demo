@@ -66,6 +66,12 @@ public class HdfsProperties implements InitializingBean {
         return hdfsFile;
     }
 
+    /**
+     * @Author Carl.he
+     * @Description Spring给properties中的属性完成赋值后执行该方法
+     * @Date 2020/1/14 8:55
+     * @return void
+     **/
     @Override
     public void afterPropertiesSet() throws Exception {
         this.hdfsFile = new HdfsFile(fsUri,username,getBufferSize());

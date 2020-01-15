@@ -3,22 +3,20 @@ package com.carl.demo.util;
 
 import java.util.List;
 
+import com.carl.demo.config.HdfsConfig;
 import com.carl.demo.exception.FrameException;
-import com.carl.demo.properties.HdfsProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
 @Slf4j
 @Component
-@EnableConfigurationProperties(HdfsProperties.class)
 public class HdfsClient {
 
     @Resource
-    HdfsProperties properties;
+    HdfsConfig config;
 
     /**
      * 在HDFS创建文件夹
@@ -35,7 +33,7 @@ public class HdfsClient {
             return true;
         }
         try {
-            properties.getHdfsFile().mkdir(path);
+            config.getHdfsFile().mkdir(path);
         }catch (FrameException ex){
             log.info(ex.getStackMessage());
             return false;
@@ -57,7 +55,7 @@ public class HdfsClient {
         }
         boolean isExists;
         try {
-            isExists = properties.getHdfsFile().exists(path);
+            isExists = config.getHdfsFile().exists(path);
         }catch (Exception ex){
             log.info(ex.getMessage());
             return false;
@@ -80,7 +78,7 @@ public class HdfsClient {
         if (!existFile(path)) {
             return null;
         }
-        return properties.getHdfsFile().list(path);
+        return config.getHdfsFile().list(path);
     }
 
     /**
@@ -96,7 +94,7 @@ public class HdfsClient {
             return false;
         }
         try {
-            properties.getHdfsFile().rename(oldDir, newDir);
+            config.getHdfsFile().rename(oldDir, newDir);
         }catch (Exception ex){
             throw new FrameException("重命名目录文件异常："+ex.getMessage());
         }
@@ -118,7 +116,7 @@ public class HdfsClient {
         if (!existFile(path)) {
             return false;
         }
-        properties.getHdfsFile().delete(path,recursive);
+        config.getHdfsFile().delete(path,recursive);
         log.info("文件删除成功");
         return true;
     }
@@ -134,7 +132,7 @@ public class HdfsClient {
         if (StringUtils.isEmpty(uploadPath)) {
             return;
         }
-        properties.getHdfsFile().upload(uploadPath,content);
+        config.getHdfsFile().upload(uploadPath,content);
         log.info("文件上传成功");
     }
 
@@ -148,7 +146,7 @@ public class HdfsClient {
         if (StringUtils.isEmpty(downloadPath)) {
             throw new FrameException("下载路径为空");
         }
-        byte[] result = properties.getHdfsFile().download(downloadPath);
+        byte[] result = config.getHdfsFile().download(downloadPath);
         log.info("文件下载成功");
         return result;
     }

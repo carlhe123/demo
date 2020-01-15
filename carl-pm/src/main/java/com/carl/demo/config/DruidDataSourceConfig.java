@@ -3,13 +3,16 @@ package com.carl.demo.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.carl.demo.properties.DruidDataSourceProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,22 +24,11 @@ import java.util.Map;
  **/
 
 @Configuration
+@EnableConfigurationProperties(DruidDataSourceProperties.class)
 public class DruidDataSourceConfig {
 
-    @Value("${druid.client.loginUsername}")
-    private String loginUsername;
-
-    @Value("${druid.client.loginPassword}")
-    private String loginPassword;
-
-    @Value("${druid.client.allow}")
-    private String allow;
-
-    @Value("${druid.client.deny}")
-    private String deny;
-
-    @Value("${druid.client.exclusions}")
-    private String exclusions;
+    @Resource
+    private DruidDataSourceProperties properties;
 
     // 初始化druidDataSource对象
     @Bean
@@ -53,11 +45,11 @@ public class DruidDataSourceConfig {
         ServletRegistrationBean bean=new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
         Map<String,String>map=new HashMap<>();
         // 设置后台界面的用户名
-        map.put("loginUsername",loginUsername);
+        map.put("loginUsername",properties.getLoginUsername());
         //设置后台界面密码
-        map.put("loginPassword",loginPassword);
+        map.put("loginPassword",properties.getLoginPassword());
         // 设置那些ip允许访问，" " 为所有
-        map.put("allow",allow);
+        map.put("allow",properties.getAllow());
         // 不允许该ip访问
 //        map.put("deny",deny);
         bean.setInitParameters(map);
@@ -76,7 +68,7 @@ public class DruidDataSourceConfig {
         bean.addUrlPatterns("/*");
         Map<String,String> map=new HashMap<>();
         // 排除 . png  .js 的监听  用于排除一些静态资源访问
-        map.put("exclusions",exclusions);
+        map.put("exclusions",properties.getExclusions());
         bean.setInitParameters(map);
         return bean;
 
