@@ -1,0 +1,3952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carl.mapper.TFisResvProdInfoMapper">
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.modal.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.modal.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.model.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.model.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.carl.model.TFisResvProdInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assets_no" jdbcType="VARCHAR" property="assetsNo" />
+    <result column="bg_asset_id" jdbcType="BIGINT" property="bgAssetId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="trans_begin_time" jdbcType="TIMESTAMP" property="transBeginTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="offline_pay_end_time" jdbcType="TIMESTAMP" property="offlinePayEndTime" />
+    <result column="inception_date" jdbcType="DATE" property="inceptionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="product_limit" jdbcType="INTEGER" property="productLimit" />
+    <result column="min_buy_amt" jdbcType="DECIMAL" property="minBuyAmt" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="product_rank" jdbcType="TINYINT" property="productRank" />
+    <result column="white_list_type" jdbcType="TINYINT" property="whiteListType" />
+    <result column="white_list_group_id" jdbcType="INTEGER" property="whiteListGroupId" />
+    <result column="agreement_type" jdbcType="TINYINT" property="agreementType" />
+    <result column="agreement_no" jdbcType="VARCHAR" property="agreementNo" />
+    <result column="agreement_template_id" jdbcType="VARCHAR" property="agreementTemplateId" />
+    <result column="assignment_group_status" jdbcType="TINYINT" property="assignmentGroupStatus" />
+    <result column="contract_mould_audit_status" jdbcType="TINYINT" property="contractMouldAuditStatus" />
+    <result column="contract_mould_path" jdbcType="VARCHAR" property="contractMouldPath" />
+    <result column="contract_mould_audit_remarks" jdbcType="VARCHAR" property="contractMouldAuditRemarks" />
+    <result column="product_profit_json" jdbcType="VARCHAR" property="productProfitJson" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assets_no, bg_asset_id, product_name, trans_begin_time, trans_end_time, offline_pay_end_time, 
+    inception_date, due_date, product_limit, min_buy_amt, status, product_rank, white_list_type, 
+    white_list_group_id, agreement_type, agreement_no, agreement_template_id, assignment_group_status, 
+    contract_mould_audit_status, contract_mould_path, contract_mould_audit_remarks, product_profit_json, 
+    create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_fis_resv_prod_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info (id, assets_no, bg_asset_id, 
+      product_name, trans_begin_time, trans_end_time, 
+      offline_pay_end_time, inception_date, due_date, 
+      product_limit, min_buy_amt, status, 
+      product_rank, white_list_type, white_list_group_id, 
+      agreement_type, agreement_no, agreement_template_id, 
+      assignment_group_status, contract_mould_audit_status, 
+      contract_mould_path, contract_mould_audit_remarks, 
+      product_profit_json, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{assetsNo,jdbcType=VARCHAR}, #{bgAssetId,jdbcType=BIGINT}, 
+      #{productName,jdbcType=VARCHAR}, #{transBeginTime,jdbcType=TIMESTAMP}, #{transEndTime,jdbcType=TIMESTAMP}, 
+      #{offlinePayEndTime,jdbcType=TIMESTAMP}, #{inceptionDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{productLimit,jdbcType=INTEGER}, #{minBuyAmt,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{productRank,jdbcType=TINYINT}, #{whiteListType,jdbcType=TINYINT}, #{whiteListGroupId,jdbcType=INTEGER}, 
+      #{agreementType,jdbcType=TINYINT}, #{agreementNo,jdbcType=VARCHAR}, #{agreementTemplateId,jdbcType=VARCHAR}, 
+      #{assignmentGroupStatus,jdbcType=TINYINT}, #{contractMouldAuditStatus,jdbcType=TINYINT}, 
+      #{contractMouldPath,jdbcType=VARCHAR}, #{contractMouldAuditRemarks,jdbcType=VARCHAR}, 
+      #{productProfitJson,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.carl.model.TFisResvProdInfo">
+    insert into t_fis_resv_prod_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="assetsNo != null">
+        assets_no,
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time,
+      </if>
+      <if test="inceptionDate != null">
+        inception_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="productLimit != null">
+        product_limit,
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="productRank != null">
+        product_rank,
+      </if>
+      <if test="whiteListType != null">
+        white_list_type,
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id,
+      </if>
+      <if test="agreementType != null">
+        agreement_type,
+      </if>
+      <if test="agreementNo != null">
+        agreement_no,
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id,
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status,
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status,
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path,
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks,
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="assetsNo != null">
+        #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    <set>
+      <if test="assetsNo != null">
+        assets_no = #{assetsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bgAssetId != null">
+        bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="transBeginTime != null">
+        trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlinePayEndTime != null">
+        offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inceptionDate != null">
+        inception_date = #{inceptionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="productLimit != null">
+        product_limit = #{productLimit,jdbcType=INTEGER},
+      </if>
+      <if test="minBuyAmt != null">
+        min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="productRank != null">
+        product_rank = #{productRank,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListType != null">
+        white_list_type = #{whiteListType,jdbcType=TINYINT},
+      </if>
+      <if test="whiteListGroupId != null">
+        white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="agreementType != null">
+        agreement_type = #{agreementType,jdbcType=TINYINT},
+      </if>
+      <if test="agreementNo != null">
+        agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agreementTemplateId != null">
+        agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="assignmentGroupStatus != null">
+        assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldAuditStatus != null">
+        contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      </if>
+      <if test="contractMouldPath != null">
+        contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="contractMouldAuditRemarks != null">
+        contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productProfitJson != null">
+        product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carl.model.TFisResvProdInfo">
+    update t_fis_resv_prod_info
+    set assets_no = #{assetsNo,jdbcType=VARCHAR},
+      bg_asset_id = #{bgAssetId,jdbcType=BIGINT},
+      product_name = #{productName,jdbcType=VARCHAR},
+      trans_begin_time = #{transBeginTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      offline_pay_end_time = #{offlinePayEndTime,jdbcType=TIMESTAMP},
+      inception_date = #{inceptionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      product_limit = #{productLimit,jdbcType=INTEGER},
+      min_buy_amt = #{minBuyAmt,jdbcType=DECIMAL},
+      status = #{status,jdbcType=TINYINT},
+      product_rank = #{productRank,jdbcType=TINYINT},
+      white_list_type = #{whiteListType,jdbcType=TINYINT},
+      white_list_group_id = #{whiteListGroupId,jdbcType=INTEGER},
+      agreement_type = #{agreementType,jdbcType=TINYINT},
+      agreement_no = #{agreementNo,jdbcType=VARCHAR},
+      agreement_template_id = #{agreementTemplateId,jdbcType=VARCHAR},
+      assignment_group_status = #{assignmentGroupStatus,jdbcType=TINYINT},
+      contract_mould_audit_status = #{contractMouldAuditStatus,jdbcType=TINYINT},
+      contract_mould_path = #{contractMouldPath,jdbcType=VARCHAR},
+      contract_mould_audit_remarks = #{contractMouldAuditRemarks,jdbcType=VARCHAR},
+      product_profit_json = #{productProfitJson,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
