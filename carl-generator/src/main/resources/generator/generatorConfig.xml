@@ -10,6 +10,8 @@
 
         <!-- 公共设置 -->
         <commentGenerator>
+            <!-- 设置生成文件的编码格式 -->
+            <property name="javaFileEncoding" value="UTF-8"/>
             <!-- 是否取消自动生成时的注释 -->
             <property name="suppressAllComments" value="true"/>
             <!-- 是否取消在注释中加上时间 -->

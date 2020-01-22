@@ -2,6 +2,8 @@ package com.carl.demo.controller;
 
 import cn.hutool.core.codec.Base64Decoder;
 import cn.hutool.core.codec.Base64Encoder;
+import cn.hutool.http.HttpUtil;
+import com.carl.demo.exception.BusinessException;
 import com.carl.demo.util.HdfsClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +37,21 @@ public class HadoopTestController {
             heads.add("Content-Disposition", "attachment;filename=test.pdf");
             heads.add("Content-Type", "application/pdf");
             result = new ResponseEntity(Base64Decoder.decode(str), heads, HttpStatus.OK);
-        }catch (Exception ex){
-            log.info("出现异常："+ex.getMessage());
+        }catch (BusinessException ex){
+            log.error("测试下载文件出现异常:{} {}",ex.getMessage(),ex.getStackTrace());
         }
         return result;
+    }
+
+    @RequestMapping(value = "/uploadTest",method = RequestMethod.GET)
+    @ResponseBody
+    public void uploadTest(){
+        try {
+            String path = "/caifu/cache/electronic/contract/2019/07/23/f68de6da10fa254c885ffeec044a46d30723195441.pdf";
+            hdfsClient.uploadFile(path);
+        }catch (Exception ex){
+            log.error("测试上传文件出现异常:{} {}",ex.getMessage(),ex.getStackTrace());
+        }
     }
 
     @RequestMapping(value = "/viewTest",method = RequestMethod.GET)
@@ -47,8 +60,8 @@ public class HadoopTestController {
             String path = "/caifu/cache/electronic/contract/2019/07/23/f68de6da10fa254c885ffeec044a46d30723195441.pdf";
             String str = Base64Encoder.encode(hdfsClient.downloadFile(path));
             flushStream(response, str);
-        }catch (Exception ex){
-            log.info("出现异常："+ex.getMessage());
+        }catch (BusinessException ex){
+            log.error("测试预览出现异常:{} {}",ex.getMessage(),ex.getStackTrace());
         }
     }
 

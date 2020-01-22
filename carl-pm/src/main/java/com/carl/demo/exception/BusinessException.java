@@ -4,10 +4,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class FrameException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
-    public FrameException(String errorMessage) {
+    public BusinessException(String errorMessage) {
         super(errorMessage);
+    }
+
+    public BusinessException(String errorMessage, Throwable cause){
+        super(errorMessage, cause);
+    }
+
+    public BusinessException(Throwable cause){
+        super(cause);
     }
 
     public String getStackMessage() {

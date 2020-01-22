@@ -107,7 +107,7 @@ public class JsonUtil {
         try {
             resList = JsonUtil.parse(result, List.class);
         } catch (Exception e) {
-            log.error("解析返回Json发生异常,原因:" + e.getMessage());
+            log.error("解析返回Json发生异常,原因:{}",e.getMessage());
         }
         return resList;
     }

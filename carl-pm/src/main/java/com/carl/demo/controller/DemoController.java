@@ -25,9 +25,6 @@ public class DemoController {
     @Resource
     private DemoService demoService;
 
-    @Autowired
-    private static FsShell shell;
-
     @RequestMapping(value = "/queryTest",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Result queryTest(@RequestParam(value = "id") Long id){
@@ -35,9 +32,5 @@ public class DemoController {
         String productName = demoService.queryProductNameById(id);
         log.info("返回结果："+productName);
         return Result.ok();
-    }
-
-    public static void main(String[] args) throws Exception{
-        System.out.println(shell.getCurrentTrashDir());
     }
 }
