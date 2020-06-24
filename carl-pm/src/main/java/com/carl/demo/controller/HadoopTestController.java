@@ -45,10 +45,10 @@ public class HadoopTestController {
 
     @RequestMapping(value = "/uploadTest",method = RequestMethod.GET)
     @ResponseBody
-    public void uploadTest(){
+    public void uploadTest(File file){
         try {
             String path = "/caifu/cache/electronic/contract/2019/07/23/f68de6da10fa254c885ffeec044a46d30723195441.pdf";
-            hdfsClient.uploadFile(path);
+            hdfsClient.uploadFile(path,file);
         }catch (Exception ex){
             log.error("测试上传文件出现异常:{} {}",ex.getMessage(),ex.getStackTrace());
         }

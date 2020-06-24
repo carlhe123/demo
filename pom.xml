@@ -32,7 +32,7 @@
         <!--  http工具      -->
         <hutool.version>4.5.10</hutool.version>
         <!-- json数据处理工具       -->
-        <fastJson.version>1.2.56</fastJson.version>
+        <fastJson.version>1.2.69</fastJson.version>
         <!--  代码简化工具以及日志管理      -->
         <lombok.version>1.18.4</lombok.version>
         <!--  接口生成工具      -->
