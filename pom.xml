@@ -6,6 +6,7 @@
     <modules>
         <module>carl-pm</module>
         <module>carl-generator</module>
+        <module>carl-apollo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -43,6 +44,8 @@
         <jedis.version>3.1.0</jedis.version>
         <!-- hadoop java客户端       -->
         <hadoop.version>3.2.0</hadoop.version>
+        <!-- apollo 客户端 -->
+        <apollo.client.version>1.6.0</apollo.client.version>
     </properties>
 
     <dependencyManagement>
@@ -138,6 +141,11 @@
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-hdfs-client</artifactId>
                 <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
