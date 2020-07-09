@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.carl</groupId>
     <artifactId>apollo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>carl-apollo</name>
     <description>apollo project for Spring Boot</description>
 
@@ -60,10 +60,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
-            <scope>test</scope>
+            <groupId>com.carl</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

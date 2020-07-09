@@ -7,6 +7,7 @@
         <module>carl-pm</module>
         <module>carl-generator</module>
         <module>carl-apollo</module>
+        <module>carl-util</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -33,7 +34,7 @@
         <!--  http工具      -->
         <hutool.version>4.5.10</hutool.version>
         <!-- json数据处理工具       -->
-        <fastJson.version>1.2.69</fastJson.version>
+        <fastJson.version>1.2.70</fastJson.version>
         <!--  代码简化工具以及日志管理      -->
         <lombok.version>1.18.4</lombok.version>
         <!--  接口生成工具      -->
@@ -46,6 +47,7 @@
         <hadoop.version>3.2.0</hadoop.version>
         <!-- apollo 客户端 -->
         <apollo.client.version>1.6.0</apollo.client.version>
+        <commons.lang.version>2.6</commons.lang.version>
     </properties>
 
     <dependencyManagement>
@@ -146,6 +148,12 @@
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-client</artifactId>
                 <version>${apollo.client.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

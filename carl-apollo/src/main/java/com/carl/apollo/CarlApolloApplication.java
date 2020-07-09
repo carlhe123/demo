@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
 @EnableApolloConfig
-@MapperScan(basePackages = {"com.carl.apollo.mapper"})
+@MapperScan("com.carl.apollo.mapper")
 public class CarlApolloApplication {
 
     public static void main(String[] args) {

@@ -1,39 +1,39 @@
-spring:
-  application:
-    name: carl-apollo
-
-  # 数据库配置
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
-    username: root
-    password: 123456
-    # druid 配置
-    dbType: mysql   # 指定数据库类型 mysql
-    initialSize: 10  # 启动初始化连接数量
-    minIdle: 5      # 最小空闲连接
-    maxActive: 20   # 最大连接数量（包含使用中的和空闲的）
-    maxWait: 60000  # 最大连接等待时间 ，超出时间报错
-    timeBetweenEvictionRunsMillis: 60000  # 设置执行一次连接回收器的时间
-    minEvictableIdleTimeMillis: 300000   # 设置时间： 该时间内没有任何操作的空闲连接会被回收
-    validationQuery: select 1         # 验证连接有效性的sql
-    testWhileIdle: true             # 空闲时校验
-    testOnBorrow: false  # 使用中是否校验有效性
-    testOnReturn: false  # 归还连接池时是否校验
-    poolPreparedStatements: false  # mysql 不推荐打开预处理连接池
-    filters: stat,wall,slf4j  #设置过滤器 stat用于接收状态，wall防止sql注入，logback说明使用logback进行日志输出
-    userGlobalataSourceStat: true  # 统计所有数据源状态
-    connectionProperties: druid.stat.mergSql=true;druid.stat.slowSqlMillis=500  # sql合并统计 设置慢sql时间为500，超过500 会有记录提示
-
-# ------ mybatis ------------#
-# 配置文件/mapper文件等相关配置
-mybatis:
-  configLocation: classpath:mybatis/mybatis-config.xml
-  mapperLocations: classpath:mybatis/mapper/*.xml
-
-#eureka:
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://172.16.81.188:8080/eureka/
+#spring:
+#  application:
+#    name: carl-apollo
+#
+#  # 数据库配置
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+#    username: root
+#    password: 123456
+#    # druid 配置
+#    dbType: mysql   # 指定数据库类型 mysql
+#    initialSize: 10  # 启动初始化连接数量
+#    minIdle: 5      # 最小空闲连接
+#    maxActive: 20   # 最大连接数量（包含使用中的和空闲的）
+#    maxWait: 60000  # 最大连接等待时间 ，超出时间报错
+#    timeBetweenEvictionRunsMillis: 60000  # 设置执行一次连接回收器的时间
+#    minEvictableIdleTimeMillis: 300000   # 设置时间： 该时间内没有任何操作的空闲连接会被回收
+#    validationQuery: select 1         # 验证连接有效性的sql
+#    testWhileIdle: true             # 空闲时校验
+#    testOnBorrow: false  # 使用中是否校验有效性
+#    testOnReturn: false  # 归还连接池时是否校验
+#    poolPreparedStatements: false  # mysql 不推荐打开预处理连接池
+#    filters: stat,wall,slf4j  #设置过滤器 stat用于接收状态，wall防止sql注入，logback说明使用logback进行日志输出
+#    userGlobalataSourceStat: true  # 统计所有数据源状态
+#    connectionProperties: druid.stat.mergSql=true;druid.stat.slowSqlMillis=500  # sql合并统计 设置慢sql时间为500，超过500 会有记录提示
+#
+## ------ mybatis ------------#
+## 配置文件/mapper文件等相关配置
+#mybatis:
+#  configLocation: classpath:mybatis/mybatis-config.xml
+#  mapperLocations: classpath:mybatis/mapper/*.xml
+#
+##eureka:
+##  client:
+##    registerWithEureka: true
+##    fetchRegistry: true
+##    serviceUrl:
+##      defaultZone: http://172.16.81.188:8080/eureka/
