@@ -48,6 +48,8 @@
         <!-- apollo 客户端 -->
         <apollo.client.version>1.6.0</apollo.client.version>
         <commons.lang.version>2.6</commons.lang.version>
+        <docx4j.version>8.1.7</docx4j.version>
+        <poi.version>3.16</poi.version>
     </properties>
 
     <dependencyManagement>
@@ -155,6 +157,28 @@
                 <artifactId>commons-lang</artifactId>
                 <version>${commons.lang.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.docx4j/docx4j-JAXB-ReferenceImpl -->
+            <dependency>
+                <groupId>org.docx4j</groupId>
+                <artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
+                <version>${docx4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
