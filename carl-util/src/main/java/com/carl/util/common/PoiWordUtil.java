@@ -82,6 +82,13 @@ public class PoiWordUtil {
                         nval.append(c);
                         continue;
                     }
+                    //处理因为文档格式出现“$”未替换的问题
+                    if (j == currentPlaceholder[1]-1 && currentPlaceholder[2] == -1){
+                        if (c == '$') {
+                            tempSb.append(c);
+                            continue;
+                        }
+                    }
                     // 排除'$'和'}'两个字符之间的字符
                     int start = currentPlaceholder[0] * 1000000 + currentPlaceholder[1] * 500 + currentPlaceholder[2];
                     int end = currentPlaceholder[3] * 1000000 + currentPlaceholder[4] * 500 + currentPlaceholder[5];

@@ -76,13 +76,15 @@ public class TestController {
             List<Object> texts = Docx4jWordUtil.getAllElementFromObject(
                     template.getMainDocumentPart(), Text.class);
             Map<String, String> map = new HashMap<>();
-            map.put("${company}", "恒大财富");
-            map.put("${address}", "航天科技大厦34层");
-            map.put("${secondParty}", "华付信息");
+            map.put("${name}", "恒大财富");
+            map.put("${beforeName}", "恒大财富1");
+            map.put("${idNo}", "4523156423156423");
+            map.put("${productName}", "华付信息");
             map.put("${year}", "2020");
             map.put("${month}", "07");
             map.put("${day}", "13");
-            map.put("${money}", "10000");
+            map.put("${bankCardNo}", "1321654321316");
+            map.put("${beforeBankCardNo}", "1321654321316123");
             Docx4jWordUtil.searchAndReplace(texts, map);
             template.save(new java.io.File(docxFile+"/new.docx"));
         } catch (Docx4JException e) {
@@ -96,13 +98,15 @@ public class TestController {
         XWPFDocument doc = null;
         try {
             Map<String, String> map = new HashMap<>();
-            map.put("${company}", "恒大财富");
-            map.put("${address}", "航天科技大厦34层");
-            map.put("${secondParty}", "华付信息");
+            map.put("${name}", "恒大财富");
+            map.put("${beforeName}", "恒大财富1");
+            map.put("${idNo}", "4523156423156423");
+            map.put("${productName}", "华付信息");
             map.put("${year}", "2020");
             map.put("${month}", "07");
             map.put("${day}", "13");
-            map.put("${money}", "10000");
+            map.put("${bankCardNo}", "1321654321316");
+            map.put("${beforeBankCardNo}", "1321654321316123");
 
             doc = new XWPFDocument(new FileInputStream(new java.io.File(docxFile+"/old.docx")));
             List<XWPFParagraph> paragraphList = new ArrayList(doc.getParagraphs());
