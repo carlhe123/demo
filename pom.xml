@@ -187,6 +187,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -194,15 +197,14 @@
     <!--给出Maven部署当前项目的构件到远程库时，关于远程库的配置-->
     <distributionManagement>
         <repository>
-            <id>nexus-releases</id>
+            <id>nexus-snapshots</id>
             <name>Nexus Releases Repository</name>
-            <url>http://nexus3.hengjs.com/repository/releases/</url>
+            <url>http://172.16.81.13:8081/repository/maven-snapshots/</url>
         </repository>
-
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Nexus Snapshots Repository</name>
-            <url>http://nexus3.hengjs.com/repository/snapshots/</url>
+            <url>http://172.16.81.13:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
