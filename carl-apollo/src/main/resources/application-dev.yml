@@ -1,0 +1,8 @@
+app:
+  id: apollo-demo
+apollo:
+  meta: http://172.16.81.188:8080
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true
