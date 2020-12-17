@@ -187,9 +187,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
+<!--                该配置可以将SpringBoot项目以普通项目的形式打包 不会生成boot-inf文件夹-->
+<!--                <configuration>-->
+<!--                    <skip>true</skip>-->
+<!--                </configuration>-->
             </plugin>
         </plugins>
     </build>
