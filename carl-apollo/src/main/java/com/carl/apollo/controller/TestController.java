@@ -3,6 +3,7 @@ package com.carl.apollo.controller;
 import cn.hutool.core.io.FileUtil;
 import com.carl.apollo.mapper.DemoMapper;
 import com.carl.util.common.Docx4jWordUtil;
+import com.carl.util.common.POIUtil;
 import com.carl.util.common.PoiWordUtil;
 import com.carl.util.encrypt.MD5Util;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -132,5 +133,14 @@ public class TestController {
                 e.printStackTrace();
             }
         }
+    }
+
+    @RequestMapping("/word-output-poi")
+    public String poiWordOutput() throws Exception {
+        String docxFile = TestController.class.getClassLoader().getResource("template").getPath() + "/old.doc";
+        String worldText = POIUtil.convertWordToHtml(docxFile);
+        System.out.println(worldText);
+        return worldText;
+
     }
 }

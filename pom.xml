@@ -50,6 +50,9 @@
         <commons.lang.version>2.6</commons.lang.version>
         <docx4j.version>8.1.7</docx4j.version>
         <poi.version>3.16</poi.version>
+        <dnsjava.version>2.1.7</dnsjava.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <xxl.version>2.2.0</xxl.version>
     </properties>
 
     <dependencyManagement>
@@ -178,7 +181,23 @@
                 <artifactId>poi-ooxml-schemas</artifactId>
                 <version>${poi.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/dnsjava/dnsjava -->
+            <dependency>
+                <groupId>dnsjava</groupId>
+                <artifactId>dnsjava</artifactId>
+                <version>${dnsjava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${javax.mail.version}</version>
+            </dependency>
+            <!-- xxl-job-core -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
