@@ -32,7 +32,7 @@
         <spring.boot.mybatis.version>2.1.1</spring.boot.mybatis.version>
         <druid.version>1.1.21</druid.version>
         <!--  http工具      -->
-        <hutool.version>4.5.10</hutool.version>
+        <hutool.version>4.5.13</hutool.version>
         <!-- json数据处理工具       -->
         <fastJson.version>1.2.70</fastJson.version>
         <!--  代码简化工具以及日志管理      -->
